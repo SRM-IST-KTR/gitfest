@@ -71,9 +71,9 @@ export default function Home() {
           <SpeakersSection />
         </section>
 
-        <section id="partners">
+        {/* <section id="partners">
           <PartnersSection />
-        </section>
+        </section> */}
 
         <RegistrationSection />
       </main>

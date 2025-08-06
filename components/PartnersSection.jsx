@@ -1,242 +1,227 @@
 import React from 'react';
+import Link from 'next/link';
+import SponsorCard from './SponsorCard';
 
 const PartnersSection = () => {
-    const partners = {
-        title: [
-            {
-                id: 1,
-                name: "GitHub",
-                logo: "/partners/github.svg",
-                website: "https://github.com",
-                description: "The world's leading software development platform"
-            },
-            {
-                id: 2,
-                name: "Microsoft",
-                logo: "/partners/microsoft.svg",
-                website: "https://microsoft.com",
-                description: "Empowering every person and organization on the planet"
-            }
-        ],
-        platinum: [
-            {
-                id: 3,
-                name: "Google Cloud",
-                logo: "/partners/google-cloud.svg",
-                website: "https://cloud.google.com",
-                description: "Build and scale with Google Cloud"
-            },
-            {
-                id: 4,
-                name: "AWS",
-                logo: "/partners/aws.svg",
-                website: "https://aws.amazon.com",
-                description: "Amazon Web Services"
-            },
-            {
-                id: 5,
-                name: "Vercel",
-                logo: "/partners/vercel.svg",
-                website: "https://vercel.com",
-                description: "The frontend cloud"
-            }
-        ],
-        gold: [
-            {
-                id: 6,
-                name: "MongoDB",
-                logo: "/partners/mongodb.svg",
-                website: "https://mongodb.com",
-                description: "The developer data platform"
-            },
-            {
-                id: 7,
-                name: "Docker",
-                logo: "/partners/docker.svg",
-                website: "https://docker.com",
-                description: "Accelerate containerized applications"
-            },
-            {
-                id: 8,
-                name: "Stripe",
-                logo: "/partners/stripe.svg",
-                website: "https://stripe.com",
-                description: "Online payment processing"
-            },
-            {
-                id: 9,
-                name: "Firebase",
-                logo: "/partners/firebase.svg",
-                website: "https://firebase.google.com",
-                description: "Google's mobile development platform"
-            }
-        ],
-        silver: [
-            {
-                id: 10,
-                name: "Postman",
-                logo: "/partners/postman.svg",
-                website: "https://postman.com",
-                description: "API development platform"
-            },
-            {
-                id: 11,
-                name: "Figma",
-                logo: "/partners/figma.svg",
-                website: "https://figma.com",
-                description: "Collaborative design tool"
-            },
-            {
-                id: 12,
-                name: "Notion",
-                logo: "/partners/notion.svg",
-                website: "https://notion.so",
-                description: "All-in-one workspace"
-            },
-            {
-                id: 13,
-                name: "Linear",
-                logo: "/partners/linear.svg",
-                website: "https://linear.app",
-                description: "Issue tracking for modern teams"
-            },
-            {
-                id: 14,
-                name: "Supabase",
-                logo: "/partners/supabase.svg",
-                website: "https://supabase.com",
-                description: "The open source Firebase alternative"
-            }
-        ]
-    };
+	// Sponsors data with official Simple Icons SVG URLs
+	const sponsors = {
+		title: [
+			{
+				name: 'GitHub',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg',
+				websiteUrl: 'https://github.com',
+				tier: 'title',
+			},
+			{
+				name: 'Microsoft',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg',
+				websiteUrl: 'https://microsoft.com',
+				tier: 'title',
+			},
+		],
+		platinum: [
+			{
+				name: 'Google Cloud',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg',
+				websiteUrl: 'https://cloud.google.com',
+				tier: 'platinum',
+			},
+			{
+				name: 'AWS',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg',
+				websiteUrl: 'https://aws.amazon.com',
+				tier: 'platinum',
+			},
+			{
+				name: 'Vercel',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vercel.svg',
+				websiteUrl: 'https://vercel.com',
+				tier: 'platinum',
+			},
+		],
+		gold: [
+			{
+				name: 'MongoDB',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg',
+				websiteUrl: 'https://mongodb.com',
+				tier: 'gold',
+			},
+			{
+				name: 'Docker',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg',
+				websiteUrl: 'https://docker.com',
+				tier: 'gold',
+			},
+			{
+				name: 'Stripe',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/stripe.svg',
+				websiteUrl: 'https://stripe.com',
+				tier: 'gold',
+			},
+			{
+				name: 'Firebase',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg',
+				websiteUrl: 'https://firebase.google.com',
+				tier: 'gold',
+			},
+			{
+				name: 'Postman',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg',
+				websiteUrl: 'https://postman.com',
+				tier: 'gold',
+			},
+			{
+				name: 'Figma',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg',
+				websiteUrl: 'https://figma.com',
+				tier: 'gold',
+			},
+		],
+	};
 
-    const PartnerLogo = ({ partner, size = "medium" }) => {
-        const sizeClasses = {
-            large: "h-16 md:h-20",
-            medium: "h-12 md:h-14",
-            small: "h-10 md:h-12"
-        };
+	return (
+		<section className="relative py-20 lg:py-28 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
+			{/* Enhanced background elements */}
+			<div className="absolute inset-0 overflow-hidden">
+				{/* Animated gradient orbs */}
+				<div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
+				<div
+					className="absolute bottom-1/4 -right-48 w-96 h-96 bg-gradient-to-l from-emerald-500/10 to-green-500/10 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"
+					style={{ animationDelay: '2s' }}
+				/>
 
-        return (
-            <div className="group bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-700">
-                <div className="flex flex-col items-center justify-center text-center">
-                    <div className={`${sizeClasses[size]} mb-4 flex items-center justify-center`}>
-                        {/* Placeholder logo - replace with actual logos */}
-                        <div className="w-full h-full bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm md:text-base">
-                                {partner.name.charAt(0)}
-                            </span>
-                        </div>
-                    </div>
-                    <h3 className="font-bold text-white mb-2 text-sm md:text-base">
-                        {partner.name}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-300 text-center leading-relaxed">
-                        {partner.description}
-                    </p>
-                    <a
-                        href={partner.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 text-green-400 hover:text-green-300 text-xs font-medium transition-colors"
-                    >
-                        Learn More →
-                    </a>
-                </div>
-            </div>
-        );
-    };
+				{/* Subtle grid pattern */}
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
-    return (
-        <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
-            {/* Background decorative elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-0 right-0 w-72 h-72 bg-green-200/20 rounded-full mix-blend-multiply filter blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-200/20 rounded-full mix-blend-multiply filter blur-xl"></div>
-            </div>
+				{/* Radial gradient overlay */}
+				<div className="absolute inset-0 bg-radial-gradient from-transparent via-gray-950/50 to-gray-950" />
+			</div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center bg-green-900/30 border border-green-800 text-green-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                        </svg>
-                        🤝 OUR AWESOME PARTNERS 🤝
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Powered by
-                        <span className="text-green-400 block">Industry Leaders! 💚</span>
-                    </h2>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                        We're incredibly grateful to work with these amazing companies who make
-                        GitFest 2025 possible and help us create an unforgettable learning experience!
-                    </p>
-                </div>
+			<div className="container mx-auto px-6 lg:px-8 relative z-10">
+				{/* Modern section header */}
+				<div className="text-center mb-16 lg:mb-20">
+					{/* Badge */}
+					<div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-900/40 to-emerald-900/40 backdrop-blur-sm border border-green-800/30 text-green-300 px-5 py-2.5 rounded-full text-sm font-medium mb-8 shadow-lg">
+						<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+						<span>Our Partners</span>
+						<div
+							className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"
+							style={{ animationDelay: '1s' }}
+						/>
+					</div>
 
-                {/* Title Partners */}
-                <div className="mb-16">
-                    <div className="text-center mb-8">
-                        <h3 className="text-2xl font-bold text-white mb-2">
-                            Title Partners 🏆
-                        </h3>
-                        <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        {partners.title.map((partner) => (
-                            <PartnerLogo key={partner.id} partner={partner} size="large" />
-                        ))}
-                    </div>
-                </div>
+					{/* Main heading */}
+					<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+						Powered by
+						<span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mt-2">
+							Innovation Leaders
+						</span>
+					</h2>
 
-                {/* Platinum Partners */}
-                <div className="mb-16">
-                    <div className="text-center mb-8">
-                        <h3 className="text-xl font-bold text-white mb-2">
-                            Platinum Partners 🥇
-                        </h3>
-                        <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                        {partners.platinum.map((partner) => (
-                            <PartnerLogo key={partner.id} partner={partner} size="medium" />
-                        ))}
-                    </div>
-                </div>
+					{/* Description */}
+					<p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+						We&apos;re proud to collaborate with industry-leading
+						companies who share our vision of empowering the next
+						generation of developers and innovators.
+					</p>
+				</div>
 
-                {/* Gold Partners */}
-                <div className="mb-16">
-                    <div className="text-center mb-8">
-                        <h3 className="text-lg font-bold text-white mb-2">
-                            Gold Partners 🥈
-                        </h3>
-                        <div className="w-12 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-                        {partners.gold.map((partner) => (
-                            <PartnerLogo key={partner.id} partner={partner} size="medium" />
-                        ))}
-                    </div>
-                </div>
+				{/* Title Sponsors - Maximum prominence */}
+				<div className="mb-20 lg:mb-24">
+					<div className="text-center mb-12">
+						<h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+							Title Sponsors
+						</h3>
+						<div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full shadow-lg shadow-green-500/30" />
+					</div>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
+						{sponsors.title.map((sponsor, index) => (
+							<SponsorCard
+								key={index}
+								name={sponsor.name}
+								logoUrl={sponsor.logoUrl}
+								websiteUrl={sponsor.websiteUrl}
+								tier={sponsor.tier}
+							/>
+						))}
+					</div>
+				</div>
 
-                {/* Silver Partners */}
-                {/* <div className="mb-16">
-                    <div className="text-center mb-8">
-                        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2">
-                            Silver Partners 🥉
-                        </h3>
-                        <div className="w-8 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
-                    </div>
-                    <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4">
-                        {partners.silver.map((partner) => (
-                            <PartnerLogo key={partner.id} partner={partner} size="small" />
-                        ))}
-                    </div>
-                </div> */}
+				{/* Platinum Partners - High prominence */}
+				<div className="mb-20">
+					<div className="text-center mb-12">
+						<h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+							Platinum Partners
+						</h3>
+						<div className="w-20 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full shadow-md shadow-green-500/25" />
+					</div>
+					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+						{sponsors.platinum.map((sponsor, index) => (
+							<SponsorCard
+								key={index}
+								name={sponsor.name}
+								logoUrl={sponsor.logoUrl}
+								websiteUrl={sponsor.websiteUrl}
+								tier={sponsor.tier}
+							/>
+						))}
+					</div>
+				</div>
 
-            </div>
-        </section>
-    );
+				{/* Gold Partners - Standard prominence */}
+				<div className="mb-16">
+					<div className="text-center mb-10">
+						<h3 className="text-lg md:text-xl font-bold text-white mb-4">
+							Gold Partners
+						</h3>
+						<div className="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full shadow-sm shadow-green-500/20" />
+					</div>
+					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-6">
+						{sponsors.gold.map((sponsor, index) => (
+							<SponsorCard
+								key={index}
+								name={sponsor.name}
+								logoUrl={sponsor.logoUrl}
+								websiteUrl={sponsor.websiteUrl}
+								tier={sponsor.tier}
+							/>
+						))}
+					</div>
+				</div>
+
+				{/* Call to action for potential sponsors */}
+				{/* <div className="text-center mt-16">
+					<div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-6 lg:p-8 shadow-xl">
+						<div className="text-center sm:text-left">
+							<h4 className="text-lg font-semibold text-white mb-1">
+								Interested in partnering with us?
+							</h4>
+							<p className="text-gray-300 text-sm">
+								Join these amazing companies and help shape the
+								future of tech education
+							</p>
+						</div>
+					    <Link
+							href="/partner"
+							className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 whitespace-nowrap">
+							Become a Partner
+						</Link> 
+					</div>
+				</div> */}
+			</div>
+		</section>
+	);
 };
 
 export default PartnersSection;
