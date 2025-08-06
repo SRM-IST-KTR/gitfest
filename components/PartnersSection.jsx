@@ -1,19 +1,22 @@
 import React from 'react';
+import Link from 'next/link';
 import SponsorCard from './SponsorCard';
 
 const PartnersSection = () => {
-	// Sponsors data with cleaner structure matching SponsorCard props
+	// Sponsors data with official Simple Icons SVG URLs
 	const sponsors = {
 		title: [
 			{
 				name: 'GitHub',
-				logoUrl: '/partners/github.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg',
 				websiteUrl: 'https://github.com',
 				tier: 'title',
 			},
 			{
 				name: 'Microsoft',
-				logoUrl: '/partners/microsoft.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg',
 				websiteUrl: 'https://microsoft.com',
 				tier: 'title',
 			},
@@ -21,19 +24,22 @@ const PartnersSection = () => {
 		platinum: [
 			{
 				name: 'Google Cloud',
-				logoUrl: '/partners/google-cloud.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg',
 				websiteUrl: 'https://cloud.google.com',
 				tier: 'platinum',
 			},
 			{
 				name: 'AWS',
-				logoUrl: '/partners/aws.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg',
 				websiteUrl: 'https://aws.amazon.com',
 				tier: 'platinum',
 			},
 			{
 				name: 'Vercel',
-				logoUrl: '/partners/vercel.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vercel.svg',
 				websiteUrl: 'https://vercel.com',
 				tier: 'platinum',
 			},
@@ -41,37 +47,43 @@ const PartnersSection = () => {
 		gold: [
 			{
 				name: 'MongoDB',
-				logoUrl: '/partners/mongodb.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg',
 				websiteUrl: 'https://mongodb.com',
 				tier: 'gold',
 			},
 			{
 				name: 'Docker',
-				logoUrl: '/partners/docker.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg',
 				websiteUrl: 'https://docker.com',
 				tier: 'gold',
 			},
 			{
 				name: 'Stripe',
-				logoUrl: '/partners/stripe.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/stripe.svg',
 				websiteUrl: 'https://stripe.com',
 				tier: 'gold',
 			},
 			{
 				name: 'Firebase',
-				logoUrl: '/partners/firebase.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg',
 				websiteUrl: 'https://firebase.google.com',
 				tier: 'gold',
 			},
 			{
 				name: 'Postman',
-				logoUrl: '/partners/postman.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg',
 				websiteUrl: 'https://postman.com',
 				tier: 'gold',
 			},
 			{
 				name: 'Figma',
-				logoUrl: '/partners/figma.svg',
+				logoUrl:
+					'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg',
 				websiteUrl: 'https://figma.com',
 				tier: 'gold',
 			},
@@ -189,7 +201,7 @@ const PartnersSection = () => {
 				</div>
 
 				{/* Call to action for potential sponsors */}
-				<div className="text-center mt-16">
+				{/* <div className="text-center mt-16">
 					<div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-6 lg:p-8 shadow-xl">
 						<div className="text-center sm:text-left">
 							<h4 className="text-lg font-semibold text-white mb-1">
@@ -200,11 +212,13 @@ const PartnersSection = () => {
 								future of tech education
 							</p>
 						</div>
-						<button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 whitespace-nowrap">
+					    <Link
+							href="/partner"
+							className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 whitespace-nowrap">
 							Become a Partner
-						</button>
+						</Link> 
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);
