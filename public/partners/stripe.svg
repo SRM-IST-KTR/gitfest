@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="currentColor">
+  <path d="M30 40 Q30 25 45 25 L55 25 Q70 25 70 40 L70 50 Q70 65 55 65 L45 65 Q30 65 30 50 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <line x1="40" y1="40" x2="60" y2="40" stroke="currentColor" stroke-width="2"/>
+  <text x="50" y="80" text-anchor="middle" font-family="Arial" font-size="8" fill="currentColor">Stripe</text>
+</svg>
