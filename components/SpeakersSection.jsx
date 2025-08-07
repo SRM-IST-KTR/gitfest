@@ -7,7 +7,7 @@ const SpeakersSection = () => {
             name: 'Ramya Ramakrishnan',
             title: 'UI- UX Design Specialist',
             company: 'IOS Development Center',
-            image: '/speakers/speaker1.jpg',
+            image: 'https://media.licdn.com/dms/image/v2/D4D03AQFlhR6DBqDcOQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722053979050?e=1757548800&v=beta&t=XM28N-_GHIF8xKRAFhKjquWKuYnbIDiXCB4lSA7xs7Q',
             bio: 'UI/UX Design Specialist with expertise in creating intuitive and user-centered digital experiences. Passionate about mobile interface design and iOS development.',
             expertise: ['UI/UX Design', 'iOS', 'Mobile Design'],
             social: {
@@ -16,20 +16,20 @@ const SpeakersSection = () => {
                 // github: 'https://github.com/sarahchen',
             },
         },
-        // {
-        // 	id: 2,
-        // 	name: 'Alex Rodriguez',
-        // 	title: 'Tech Lead & Cloud Architect',
-        // 	company: 'Microsoft',
-        // 	image: '/speakers/speaker2.jpg',
-        // 	bio: 'Cloud-native enthusiast with expertise in scaling distributed systems. Leads engineering teams building next-generation developer tools.',
-        // 	expertise: ['Azure', 'Kubernetes', 'Microservices'],
-        // 	social: {
-        // 		twitter: 'https://twitter.com/alexrodriguez',
-        // 		linkedin: 'https://linkedin.com/in/alexrodriguez',
-        // 		github: 'https://github.com/alexrodriguez',
-        // 	},
-        // },
+        {
+            id: 2,
+            name: 'Coming Soon',
+            title: 'TBA',
+            company: 'TBA',
+            image: '/speakers/speaker2.jpg',
+            bio: 'TBA',
+            expertise: ['TBA'],
+            social: {
+                // twitter: 'https://twitter.com/alexrodriguez',
+                // linkedin: 'https://linkedin.com/in/alexrodriguez',
+                // github: 'https://github.com/alexrodriguez',
+            },
+        },
     ];
 
     return (
@@ -76,19 +76,12 @@ const SpeakersSection = () => {
                                 style={{ animationDelay: `${index * 0.1}s` }}>
                                 {/* Speaker Image */}
                                 <div className="relative mb-6">
-                                    <div className="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
-                                        <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center">
-                                            <svg
-                                                className="w-10 h-10 text-gray-300"
-                                                fill="currentColor"
-                                                viewBox="0 0 20 20">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        </div>
+                                    <div className="w-32 h-32 mx-auto bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                                        <img
+                                            src={speaker.image}
+                                            alt={speaker.name}
+                                            className="w-28 h-28 rounded-full object-cover"
+                                        />
                                     </div>
                                 </div>
 
